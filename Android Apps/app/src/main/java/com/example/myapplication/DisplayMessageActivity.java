@@ -35,7 +35,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
-        image1 = (ImageView)findViewById(R.id.imageView);
+//        image1 = (ImageView)findViewById(R.id.imageView);
         startIndex = 0;
 
 
@@ -48,20 +48,20 @@ public class DisplayMessageActivity extends AppCompatActivity {
         try {
             System.out.println(result);
             json = new JSONObject(result);
-            textView.setText("Detected cell Count: "+ json.get("cells_count"));
-            System.out.println(json.getJSONArray("images").length());
-            imageArray = new Bitmap[json.getJSONArray("images").length()];
-            urls = new String[json.getJSONArray("images").length()];
-            for(int i=0;i<urls.length;i++){
-                urls[i] = "http://"+json.getJSONArray("images").getString(i);
-            }
-            endIndex = urls.length-1;
+            textView.setText("Image classified as: "+ json.get("label"));
+//            System.out.println(json.getJSONArray("images").length());
+//            imageArray = new Bitmap[json.getJSONArray("images").length()];
+//            urls = new String[json.getJSONArray("images").length()];
+//            for(int i=0;i<urls.length;i++){
+//                urls[i] = "http://"+json.getJSONArray("images").getString(i);
+//            }
+//            endIndex = urls.length-1;
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        new ImageExtractor().execute();
+//        new ImageExtractor().execute();
 
-        nextImage();
+//        nextImage();
     }
 
     class ImageExtractor extends AsyncTask<Void, Void, Void> {

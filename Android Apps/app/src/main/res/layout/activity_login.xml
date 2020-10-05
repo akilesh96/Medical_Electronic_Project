@@ -14,11 +14,10 @@
         android:layout_marginTop="64dp"
 
         android:layout_marginEnd="24dp"
-        android:digits="0123456789."
         android:hint="@string/matlab_api_ip_address"
         android:importantForAutofill="no"
-        android:inputType="number"
-        android:selectAllOnFocus="true"
+        android:inputType="textWebEmailAddress"
+        android:selectAllOnFocus="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

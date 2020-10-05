@@ -18,12 +18,12 @@ public class LoginActivity<filters> extends AppCompatActivity {
     public static final String IP_ADDRESS = "com.example.myfirstapp.IP";
     public EditText username_editText, password_editText, editText;
 
-    private static final Pattern IP_ADDRESS_PATTERN
-            = Pattern.compile(
-            "((25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9])\\.(25[0-5]|2[0-4]"
-                    + "[0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]"
-                    + "[0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}"
-                    + "|[1-9][0-9]|[0-9]))");
+//    private static final Pattern IP_ADDRESS_PATTERN
+//            = Pattern.compile(
+//            "((25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9])\\.(25[0-5]|2[0-4]"
+//                    + "[0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]"
+//                    + "[0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}"
+//                    + "|[1-9][0-9]|[0-9]))");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,21 +46,21 @@ public class LoginActivity<filters> extends AppCompatActivity {
         String username = username_editText.getText().toString();
         String password = password_editText.getText().toString();
         String ip = editText.getText().toString();
-        Matcher matcher = IP_ADDRESS_PATTERN.matcher(ip);
-        System.out.println(matcher.matches());
-        if (!(matcher.matches())){
-            AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this).create();
-            alertDialog.setTitle("Alert");
-            alertDialog.setMessage("Enter MATLAB API IP address");
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
-        }
-        else if(!(username.equals("gunapriya@gmail.com") && password.equals("8807130337"))){ // Password : 8807130337
+//        Matcher matcher = IP_ADDRESS_PATTERN.matcher(ip);
+//        System.out.println(matcher.matches());
+//        if (!(matcher.matches())){
+//            AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this).create();
+//            alertDialog.setTitle("Alert");
+//            alertDialog.setMessage("Enter MATLAB API IP address");
+//            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.dismiss();
+//                        }
+//                    });
+//            alertDialog.show();
+//        }
+        if(!(username.equals("android@gmail.com") && password.equals("matlab@123"))){ // Password : 8807130337
             AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this).create();
             alertDialog.setTitle("Alert");
             alertDialog.setMessage("Invalid Credentials");
