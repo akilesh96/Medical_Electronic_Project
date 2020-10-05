@@ -1,0 +1,49 @@
+a = imread('C:\Users\Surya Reddy\Desktop\ImageProcessing-Matlab\Test\test1.jpg');
+ 
+figure;
+imshow(a)
+matlabroot=('C:\Users\Surya Reddy\Desktop\ImageProcessing-Matlab\Train');
+Datasetpath=fullfile(matlabroot,'cnn2','dataset');
+imds = imageDatastore(fullfile(matlabroot),'IncludeSubfolders',true,'FileExtensions','.jpg','LabelSource','foldernames');
+
+ 
+layers = [imageInputLayer([515 415  3])
+convolution2dLayer(5,20)
+reluLayer
+maxPooling2dLayer(2,'stride',2)
+convolution2dLayer(5,20)
+reluLayer 
+maxPooling2dLayer(2,'stride',2)
+fullyConnectedLayer(2)
+softmaxLayer
+classificationLayer()]
+
+miniBatchSize = 3
+
+options=trainingOptions('sgdm','MiniBatchSize',miniBatchSize,'MaxEpochs',1,'initialLearnrate',0.001');
+
+net= trainNetwork(imds,layers,options);
+save net;
+
+%save('convnet.mat', 'convnet');
+check_conv = load('net.mat');
+
+output = classify(check_conv,a);
+
+
+tf1=[]
+for   ii=1:2
+    
+    st= int2str(ii)
+    tf= ismember(output,st);
+    tf1= [tf1 tf];
+end
+disp(output);
+
+out= find(tf1==1);
+
+if  out==1
+    msgbox('diabetic')
+elseif out==2
+    msgbox('healthy')
+end 
